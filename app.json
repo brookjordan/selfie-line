@@ -1,8 +1,7 @@
 {
-  "name": "Start on Heroku: Node.js",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
-  "keywords": ["node", "express", "static"],
+  "name": "Selfie line",
+  "description": "Save your selfies to a calendar",
+  "repository": "https://github.com/brookjordan/selfie-line",
+  "keywords": ["node", "express"],
   "image": "heroku/nodejs"
 }
