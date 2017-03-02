@@ -1,6 +1,7 @@
 const express = require('express');
 const path    = require('path');
-const app     = express();
+const app     = require(path.join(__dirname, 'js/app.js'));
+const webhook = require(path.join(__dirname, 'js/webhooks.js'));
 
 app.set('port', (process.env.PORT || 5000));
 
