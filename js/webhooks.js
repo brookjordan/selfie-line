@@ -9,6 +9,7 @@ module.exports = {
       res.status(200).send(req.query['hub.challenge']);
     } else {
       console.error("Failed validation. Make sure the validation tokens match.");
+      console.error(`Recieved: ${req.query['hub.verify_token']}`);
       res.sendStatus(403);
     }
   }),
@@ -17,7 +18,7 @@ module.exports = {
     let data = req.body;
 
     // Make sure this is a page subscription
-    if (data.object === 'page') {
+    if (data && data.object === 'page') {
 
       // Iterate over each entry - there may be multiple if batched
       data.entry.forEach(function(entry) {
@@ -39,6 +40,10 @@ module.exports = {
       // You must send back a 200, within 20 seconds, to let us know
       // you've successfully received the callback. Otherwise, the request
       // will time out and we will keep trying to resend.
+      res.sendStatus(200);
+    } else {
+      console.log("Request is weird: ", req);
+      console.log("Data doesn't work: ", data);
       res.sendStatus(200);
     }
   }),
