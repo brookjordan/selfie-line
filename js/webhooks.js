@@ -4,7 +4,7 @@ let app  = require(path.join(__dirname, '../js/app.js'));
 module.exports = {
   get: app.get('/webhook', function(req, res) {
     if (req.query['hub.mode'] === 'subscribe' &&
-        req.query['hub.verify_token'] === 'EAAC5tNJLJv8BAJVBRg3uYzdK0ZC4HcxaWaCLHvJKoVc69qAIXIB4dXWdAxZA57Ef3thglRIvPgZCEyM8rPSlMuoa4ctBVRVOD7aT2KP4qHL9ZBV6x8Jr1Dv72pLOKDEvBpNzylBKAZBf03eZBdttEG6NwaIbIAeuQfmBcgm09kgQZDZD') {
+        req.query['hub.verify_token'] === 'EAAC5tNJLJv8BACXvdVU4H0LQkLvtqDFIBf3XkFaU6pc8vx0cV0eCogcuRWI4G8RSkjWwB9OANMOoA0R8QtIEMqKQZCEI8VZBeqpvDevtFC8IJMhAJCJh2JKnIm3d7j2T10Sp4en4Ofyih1hFPJbDlalsCiPDq7nelxnF7pWAZDZD') {
       console.log("Validating webhook");
       res.status(200).send(req.query['hub.challenge']);
     } else {
@@ -42,9 +42,9 @@ module.exports = {
       // will time out and we will keep trying to resend.
       res.sendStatus(200);
     } else {
-      console.log("Request is weird: ", req);
+      console.log("Request is weird: ", JSON.stringify(req));
       console.log("Data doesn't work: ", data);
-      res.sendStatus(200);
+      res.sendStatus(400);
     }
   }),
 };
