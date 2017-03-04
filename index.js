@@ -66,11 +66,14 @@ app.post('/webhook', (request, response) => {
   for (let i = 0; i < messaging_events.length; i += 1) {
     let event = request.body.entry[0].messaging[i];
     let sender = event.sender.id;
-    if (event.message && event.message.text) {
-      //let text = event.message.text;
-      const thing = placeholder();
-      sendTextMessage(sender, thing.phrase, thing.info);
+    let attachment = event.message.attachments && event.message.attachments[0];
+    if (attachment && attachment.type === 'image') {
+      console.log(attachment.payload.url);
     }
+    //let text = event.message.text;
+    const thing = placeholder();
+    sendTextMessage(sender, thing.phrase, thing.info);
+
     response.sendStatus(200);
   }
 });
