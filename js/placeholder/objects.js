@@ -24,7 +24,7 @@ module.exports = [
   "$a-adj woman",
   "$a-adj wrinkle",
   "$adj criminal",
-  "$adj legs",
+  "$their legs",
   "$adj machete",
   "$an-adj irish cottage",
   "$an-adj octopus",

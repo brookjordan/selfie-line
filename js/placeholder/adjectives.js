@@ -121,7 +121,7 @@ module.exports = [
   "a pea-brained",
   "a territorial",
   "an underhanded",
-  "a zombie like",
+  "a zombie-like",
   "a mischievous",
   "an at-the-ready",
   "a free-loading",
