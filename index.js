@@ -5,7 +5,8 @@ const bodyParser  = require('body-parser');
 const request     = require('request');
 const path        = require('path');
 const app         = express();
-const accessToken = 'EAAC5tNJLJv8BAAGnWQ9YSflcJfBNtQpQ8FiGsSIsBz06oHZChs71P2ghAIZBZB2nEosB6KtmYceElVRWVD1LUx3GRIuJoTXU66ZChYxbMNLFizZCokaek86pk5EknwJkIiHQN6Mdx16O77AADc5zpXp2rVSmM67e7zZArxRDbZCiwZDZD';
+const verifyToken = 'BwyrVv7wvZkaaPCPgMUeQKda';
+const accessToken = 'EAAC5tNJLJv8BAIz1g1X1tiCqe81PnylHSm3uX11wVKcC0wFHQqXuvYvBO4Fvj5kJ8ZB5JB2PHpMp7S32ZAd9svPZA1nFxisOMlfYdIyfcpUGwGx3Cmfs39CTZCXDyHdZBG6Q8XkXZBCCslymwfquttr5YsLtfALKoeew0XX7tDwwZDZD';
 const placeholder = require(path.join(__dirname, 'js/placeholder/placeholder.js'));
 
 const emojis = [
@@ -54,7 +55,7 @@ app.get('/', function (req, res) {
 
 // for Facebook verification
 app.get('/webhook/', function (req, res) {
-    if (req.query['hub.verify_token'] === 'BwyrVv7wvZkaaPCPgMUeQKda') {
+    if (req.query['hub.verify_token'] === verifyToken) {
         res.send(req.query['hub.challenge'])
     }
     res.send('Error, wrong token')
